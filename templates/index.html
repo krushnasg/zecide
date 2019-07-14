@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Strength Estimation</title>
+    </head>
+    <body>
+        <form action = "{{url_for('hello')}}" method="post" >
+            {{ form.hidden_tag() }}
+            Choose index listing:
+            {{ form.mIndex.label }} 
+            {{ form.mIndex() }}
+            <br>
+            <!-- <select name="index">
+                {% for index in listings %}
+                    <option value  = {{index}}>{{index}}</option>
+                {% endfor %}
+            </select>     -->
+
+            Type of Indicator:
+            {{ form.indicatorType.label }}
+            {{ form.indicatorType() }}
+            <!-- <select name="indicators">
+                {%for indicatorType in indicatorList%}
+                    <option value = {{indicatorType}}>{{ indicatorType }}</option>
+                {% endfor%}
+            </select> -->
+            <br>
+            <!-- <button type="submit"  name = "submit">Submit</button>    -->
+            {{ form.submit() }}    
+        </form>
+        {%if defaultPlot  %}
+            {{ defaultPlot }}
+
+        {% endif %}
+
+        {% block body %}    
+        {% endblock %}
+                  
+
+    </body>
+
+
+</html>
